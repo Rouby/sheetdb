@@ -1,2 +1,2 @@
-export { Base, type Values } from "./$base";
-export { syncCache } from "./$cache";
+export { Base, type Values } from "./$base.js";
+export { syncCache } from "./$cache.js";
