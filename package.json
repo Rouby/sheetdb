@@ -1,0 +1,38 @@
+{
+	"name": "@rouby/sheetdb",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"noop\"",
+		"build": "bun tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Rouby/sheetdb.git"
+	},
+	"author": "Jonathan Burke",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Rouby/sheetdb/issues"
+	},
+	"packageManager": "yarn@4.4.0",
+	"keywords": [
+		"sheet",
+		"database",
+		"query",
+		"google",
+		"spreadsheet",
+		"sheetdb"
+	],
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^22.2.0",
+		"typescript": "^5.5.4"
+	},
+	"dependencies": {
+		"fast-json-patch": "^3.1.1",
+		"google-auth-library": "^9.13.0",
+		"google-spreadsheet": "^4.1.2"
+	}
+}
