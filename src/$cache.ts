@@ -147,7 +147,7 @@ export async function syncCache(clearCache = false) {
       }
     }
   }
-  logger.info("Synced cache", { patches: patches.entries() });
+  logger.info({ patches: patches.entries() }, "Synced cache");
   patches.clear();
   if (clearCache) {
     cache.clear();
