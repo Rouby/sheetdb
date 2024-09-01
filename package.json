@@ -3,7 +3,7 @@
 	"exports": {
 		".": {
 			"import": "./dist/index.js",
-			"require": "./cjs/index.js"
+			"require": "./cjs/index.cjs"
 		}
 	},
 	"type": "module",
@@ -12,7 +12,8 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"noop\"",
-		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration && tsc -p tsconfig.cjs.json --outdir cjs --noEmit false"
+		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration",
+		"build:cjs": "tsc -p tsconfig.cjs.json --outdir cjs --noEmit false && find cjs -type f -name '*.js' -exec bash -c 'mv \"$1\" \"${1%.js}.cjs\"' - '{}' \\;"
 	},
 	"repository": {
 		"type": "git",

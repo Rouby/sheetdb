@@ -26,6 +26,7 @@ jobs:
           node-version: 20
       - run: yarn install --immutable
       - run: yarn build
+      - run: yarn build:cjs
       - uses: actions/upload-artifact@v3
         with:
           name: dist
