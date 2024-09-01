@@ -1,9 +1,14 @@
 {
 	"name": "@rouby/sheetdb",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./cjs/index.js"
+		}
+	},
+	"main": "cjs/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"main": "cjs/index.js",
-	"type": "module",
 	"scripts": {
 		"test": "echo \"noop\"",
 		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration && tsc -p tsconfig.cjs.json --outdir cjs --noEmit false"
