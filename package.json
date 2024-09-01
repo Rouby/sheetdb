@@ -1,19 +1,20 @@
 {
 	"name": "@rouby/sheetdb",
+	"type": "module",
 	"exports": {
 		".": {
 			"import": "./dist/index.js",
-			"require": "./cjs/index.cjs"
+			"require": "./dist/index.cjs",
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
 		}
 	},
-	"type": "module",
-	"main": "cjs/index.js",
+	"main": "dist/index.cjs",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"noop\"",
-		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration",
-		"build:cjs": "tsc -p tsconfig.cjs.json --outdir cjs --noEmit false && find cjs -type f -name '*.js' -exec bash -c 'mv \"$1\" \"${1%.js}.cjs\"' - '{}' \\;"
+		"build": "tsup src/index.ts --tsconfig tsconfig.build.json --format cjs,esm --clean --dts"
 	},
 	"repository": {
 		"type": "git",
@@ -36,6 +37,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
 		"@types/node": "^22.2.0",
+		"tsup": "^8.2.4",
 		"typescript": "^5.5.4"
 	},
 	"dependencies": {

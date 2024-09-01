@@ -26,13 +26,10 @@ jobs:
           node-version: 20
       - run: yarn install --immutable
       - run: yarn build
-      - run: yarn build:cjs
       - uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: |
-            dist
-            cjs
+          path: dist
 
   publish:
     name: 📦 Publish
@@ -51,6 +48,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
+          path: dist
       - uses: actions/setup-node@v4
         with:
           node-version: 20
