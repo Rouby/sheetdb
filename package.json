@@ -2,10 +2,11 @@
 	"name": "@rouby/sheetdb",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"main": "cjs/index.js",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"noop\"",
-		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration"
+		"build": "tsc -p tsconfig.build.json --outdir dist --noEmit false --declaration && tsc -p tsconfig.cjs.json --outdir cjs --noEmit false"
 	},
 	"repository": {
 		"type": "git",
