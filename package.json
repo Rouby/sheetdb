@@ -5,8 +5,12 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js",
-			"require": "./dist/index.cjs",
-			"default": "./dist/index.js"
+			"require": "./dist/index.cjs"
+		},
+		"./caches/InMemory": {
+			"types": "./dist/caches/InMemory.d.ts",
+			"import": "./dist/caches/InMemory.js",
+			"require": "./dist/caches/InMemory.cjs"
 		}
 	},
 	"main": "dist/index.cjs",
@@ -14,7 +18,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"noop\"",
-		"build": "tsup src/index.ts --tsconfig tsconfig.build.json --format cjs,esm --clean --dts"
+		"build": "tsup src/index.ts src/caches/InMemory.ts --tsconfig tsconfig.build.json --format cjs,esm --clean --dts"
 	},
 	"repository": {
 		"type": "git",
