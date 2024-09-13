@@ -41,18 +41,24 @@ export async function allRows<T extends Base>(
 	const rows = await doc.sheetsByTitle[sheetName].getRows();
 	const objectKeys = Object.keys(new cls());
 
-	return rows.map((row) => {
-		return Object.fromEntries(
-			objectKeys.map((key) => [
-				key,
-				row.get(key)
-					? row.get(key) === "FALSE"
-						? false
-						: row.get(key) === "TRUE"
-							? true
-							: JSON.parse(row.get(key))
-					: new cls()[key as keyof typeof cls],
-			]),
-		) as T;
-	});
+	return rows
+		.map((row) => {
+			return Object.fromEntries(
+				objectKeys.map((key) => [
+					key,
+					row.get(key)
+						? row.get(key) === "FALSE"
+							? false
+							: row.get(key) === "TRUE"
+								? true
+								: JSON.parse(row.get(key))
+						: new cls()[key as keyof typeof cls],
+				]),
+			);
+		})
+		.map((values) => {
+			const obj = new cls();
+			Object.assign(obj, JSON.parse(JSON.stringify(values)));
+			return obj;
+		});
 }
